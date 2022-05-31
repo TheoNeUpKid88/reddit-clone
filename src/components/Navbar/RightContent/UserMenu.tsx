@@ -4,7 +4,7 @@ import {Flex, Icon, Text} from "@chakra-ui/react";
 import {signOut, User} from "@firebase/auth";
 import {ChevronDownIcon} from "@chakra-ui/icons";
 import {auth} from "../../../firebase/clientApp";
-import {useSetRecoilState} from "recoil";
+import {useResetRecoilState, useSetRecoilState} from "recoil";
 import {authModalState} from "../../../atoms/authModalAtom";
 import { VscAccount } from "react-icons/vsc";
 import { IoSparkles } from "react-icons/io5";
@@ -19,6 +19,10 @@ type UserMenuProps = {
 
 const UserMenu: FC<UserMenuProps> = ({user}) => {
     const setAuthModalState = useSetRecoilState(authModalState)
+
+    const logout = async () => {
+        await signOut(auth)
+    }
     return (
         <Menu>
             <MenuButton
@@ -73,7 +77,7 @@ const UserMenu: FC<UserMenuProps> = ({user}) => {
                             fontSize={'10pt'}
                             fontWeight={700}
                             _hover={{bg: 'blue.500', color: 'white'}}
-                            onClick={() => signOut(auth)}
+                            onClick={logout}
                         >
                             <Flex align={'center'}>
                                 <Icon fontSize={20} mr={2} as={MdOutlineLogin}/>
