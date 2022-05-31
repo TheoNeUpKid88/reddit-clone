@@ -12,7 +12,7 @@ import {auth, firestore, storage} from "../../firebase/clientApp";
 import useSelectFile from "../../hooks/useSelectFile";
 import {FaReddit} from "react-icons/fa";
 import {getDownloadURL, ref, uploadString} from "@firebase/storage";
-import {doc, updateDoc} from "@firebase/firestore";
+import {doc, updateDoc, where} from "@firebase/firestore";
 import {useSetRecoilState} from "recoil";
 
 type AboutProps = {

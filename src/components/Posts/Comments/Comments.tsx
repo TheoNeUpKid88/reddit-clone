@@ -170,7 +170,7 @@ const Comments: FC<CommentsProps> = ({selectedPost, communityId, user}) => {
                                         comment={comment}
                                         onDeleteComment={onDeleteComment}
                                         loadingDelete={loadingDeleteId === comment.id}
-                                        userId={user.uid}
+                                        userId={user?.uid}
                                     />
                                 ))}
                             </>

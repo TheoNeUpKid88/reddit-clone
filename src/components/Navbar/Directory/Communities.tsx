@@ -11,6 +11,7 @@ import {FaReddit} from "react-icons/fa";
 const Communities = () => {
     const [open, setOpen] = useState(false)
     const mySnippets = useRecoilValue(communityState).mySnippets
+    console.log(mySnippets)
     return (
         <>
             <CreateCommunityModal open={open} handleClose={() => setOpen(false)}/>
